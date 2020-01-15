@@ -1,7 +1,6 @@
 firstName <-  "Matheus"
 lastName <-  "Barros"
 
-print(paste(lastName, firstName))
+print(paste(firstName, lastName)) # Matheus Barros
 
-
-print(paste(lastName, firstName, sep=", "))
+print(paste(lastName, firstName, sep=", ")) # Barros, Matheus
