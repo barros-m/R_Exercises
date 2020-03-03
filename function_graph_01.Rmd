@@ -1,0 +1,27 @@
+---
+title: "Function Graphs 3"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Function_Graph_01, fig.width=5, out.width='90%'}
+f1 <- function(x)
+{
+  25*x^2
+}
+
+f2 <- function(x)
+{
+  x^3
+}
+
+library(ggplot2)
+domain <- data.frame(x=c(-5, 5))
+ggplot(domain, aes(x)) + stat_function(fun = f1, aes(color="Quadratic Function")) + 
+  stat_function(fun = f2, aes(color="Cubic Function")) + theme_bw() + ggtitle("Functions") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_colour_manual("", values = c("blue", "red"))
+```

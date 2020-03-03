@@ -1,0 +1,70 @@
+---
+title: "Practice"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Function_Graph_01, fig.width=5, out.width='100%'}
+logn <- function(x)
+{
+  log2(x)
+}
+
+n <- function(x)
+{
+  x
+}
+
+nlogn <- function(x)
+{
+  x*logn(x)
+}
+
+n2 <- function(x)
+{
+  x^2
+}
+
+n2logn <- function(x)
+{
+  n2(x)*logn(x)
+}
+
+library(ggplot2)
+domain <- data.frame(x=c(-0.5, 5))
+ggplot(domain, aes(x)) + 
+  stat_function(fun = logn, aes(color="Logn")) + 
+  stat_function(fun = n, aes(color="N")) +
+  stat_function(fun = nlogn, aes(color="N Logn")) +
+  stat_function(fun = n2, aes(color="N^2")) +
+  stat_function(fun = n2logn, aes(color="N^2 Logn")) +
+  theme_bw() +
+  ggtitle("Functions") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_colour_manual("", values = c("blue", "red", "black", "yellow", "purple"))
+```
+
+```{r Function_Graph_01, fig.width=10, out.width='100%'}
+library(ggplot2)
+
+continents <- c("Africa", "Antartica", "Asia", "Europe", "North America", "Oceania", "South America")
+
+number_of_countries <- c(54, 7, 48, 44, 14, 23, 12)
+hemisphere <- c("Both", "Southern", "Both", "Northern", "Northern", "Both", "Both")
+
+continents.countries <- data.frame(continents, number_of_countries, hemisphere)
+
+ggplot(continents.countries, aes(x=continents, y=number_of_countries)) +
+  geom_col() + theme_bw() +
+  labs(x="Continent", y="Number of countries")
+
+```
+
+
+```{r Function_Graph_01, fig.width=10, out.width='100%'}
+library(ggplot2)
+ggplot(BOD, aes(x=Time, y=demand)) + geom_col() + theme_bw()s
+```
