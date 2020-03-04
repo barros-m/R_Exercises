@@ -1,4 +1,10 @@
 # Followed from: https://www.youtube.com/watch?v=8dNBWESwcHU&feature=youtu.be
+
+# To Be Installed:
+# install.packages("readxl")
+# install.packages("rworldmap", dependencies=TRUE)
+
+
 library(RColorBrewer)
 library(rworldmap)
 library(readxl)
@@ -13,7 +19,7 @@ WorldMapFurnitureSales <-  joinCountryData2Map(mapData,
                                            nameJoinColumn="Country",
                                            joinCode="NAME")
 
-colourPalette <- RColorBrewer::brewer.pal(10, 'Spectral') #
+colourPalette <- RColorBrewer::brewer.pal(5, 'Spectral') #
 
 mapCountryData(WorldMapFurnitureSales,
                nameColumnToPlot = 'International Furniture Part Sales',
